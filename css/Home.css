@@ -57,3 +57,7 @@ body
 {
     background-image: conic-gradient(rgb(233, 193, 193),rgb(238, 238, 203));
 }
+iframe
+{
+    pointer-events: none;
+}
