@@ -1,0 +1,59 @@
+.a1
+{
+    background: linear-gradient(to right bottom,rgb(27, 27, 131),rgb(56, 5, 80));
+}
+.p1
+{
+    font-size: xx-large;
+    color:rgb(153, 58, 231)
+}
+.b1
+{
+    background-image: url("E:/Study shit/Bro-ki-help/img/ahem/vivid-blurred-colorful-wallpaper-background.jpg");
+}
+.i1
+{
+    background-image: url("E:/Study shit/Bro-ki-help/img/ahem/10547226_13167.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+.filter-blur
+{
+    background: rgba(240,227,227,0.5);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.p1
+{
+    color:rgb(137, 137, 216);
+}
+.h1
+{
+    color:rgb(137, 137, 216);
+}
+.button1
+{
+    width:75px;
+    height:300px;
+    background-image: conic-gradient(rgb(238, 151, 151),rgb(230, 230, 159));
+
+}
+.f90
+{
+    font-size:x-large;
+    color:rgb(186, 209, 58);
+}
+.s1
+{
+    font-size:30px;
+    color:black;
+}
+body
+{
+    background-image: conic-gradient(rgb(233, 193, 193),rgb(238, 238, 203));
+}
