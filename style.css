@@ -23,6 +23,7 @@ h1 {
   position: absolute;
   top: 16%;
   left: 40%;
+  user-select:none;
 }
 
 .keys {
