@@ -59,23 +59,23 @@
     <!-- JavaScript -->
     <script>
       function removeTransition(e) {
-        if (e.propertyName !== "transform") return;
+        if (e.propertyName !== "transform") return;//skip if it's not transform
         e.target.classList.remove("playing");
       }
 
       function playSound(keyCode) {
         const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
         const key = document.querySelector(`div[data-key="${keyCode}"]`);
-        if (!audio) return;
+        if (!audio) return;//stop function from running
 
-        key.classList.add("playing");
-        audio.currentTime = 0;
+        key.classList.add("playing");//adds .playing class 
+        audio.currentTime = 0;//rewind to start ,when clicked/keypressed multiple times
         audio.play();
       }
 
       const keys = Array.from(document.querySelectorAll(".key"));
       keys.forEach((key) =>
-        key.addEventListener("transitionend", removeTransition)
+        key.addEventListener("transitionend", removeTransition)//call removeTransition  after keypressed
       );
 
       window.addEventListener("keydown", (e) => {
