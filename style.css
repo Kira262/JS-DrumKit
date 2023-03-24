@@ -51,7 +51,7 @@ h1 {
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
 }
-
+/* Added when clicked/key pressed */
 .playing {
   transform: scale(1.1);
   border-color: #ffc600;
