@@ -1,42 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
 html {
+  /* display: grid; */
   font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  background: url("./backround1.avif") bottom center;
   background-size: cover;
 }
 
-body,html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+* {
+  font-family: "Fira Code";
 }
 
-h1{
-  color:#ffc600;
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #ffc600;
   font-size: 6rem;
   position: absolute;
-  top:16%;
+  top: 16%;
   left: 40%;
 }
+
 .keys {
   display: flex;
-  flex: 1;
+  flex-direction: row;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
+.key:active {
+  cursor: grabbing;
+}
+
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
+  cursor: grab;
+  border: 0.4rem solid black;
+  border-radius: 0.5rem;
   margin: 1rem;
   font-size: 1.5rem;
-  padding: 1rem .5rem;
-  transition: all .07s ease;
+  padding: 1rem 0.5rem;
+  transition: all 0.07s ease;
   width: 10rem;
   text-align: center;
   color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 0.5rem black;
 }
 
 .playing {
@@ -53,6 +66,38 @@ kbd {
 .sound {
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   color: #ffc600;
+}
+
+/* Small screen styles */
+@media (max-width: 75rem) {
+  .keys {
+    transition: all 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .key {
+    transition: all 0.4s ease;
+    font-size: 24px;
+    width: 10rem;
+    height: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  kbd {
+    transition: all 0.3s ease;
+    font-size: 20px;
+  }
+
+  .sound {
+    transition: all 0.2s ease;
+    font-size: 12px;
+  }
 }
