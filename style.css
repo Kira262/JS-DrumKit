@@ -23,7 +23,7 @@ h1 {
   position: absolute;
   top: 16%;
   left: 40%;
-  user-select:none;
+  user-select: none;
 }
 
 .keys {
@@ -52,6 +52,7 @@ h1 {
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
 }
+
 /* Added when clicked/key pressed */
 .playing {
   transform: scale(1.1);
@@ -101,4 +102,13 @@ kbd {
     transition: all 0.2s ease;
     font-size: 12px;
   }
+}
+
+#preloader {
+  background: #fff url(./dotdotdot.gif) no-repeat center center;
+  background-size: 5%;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
 }
