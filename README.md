@@ -1,4 +1,4 @@
-DrumKit<a href="https://kira262.github.io/JS-DrumKit/">JS Drumkit</a>
+DrumKit:<a href="https://kira262.github.io/JS-DrumKit/">JS Drumkit</a>
 
 ## 💫 About Me:
 🔭 I’m currently working on:WeatherJot WebApp<br>🤝 I’m looking for help with :C#<br>🌱 I’m currently learning: React, C# , AzureAI
