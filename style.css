@@ -1,37 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 
 html {
-  /* display: grid; */
   font-size: 10px;
   background: url("./backround1.avif") bottom center;
   background-size: cover;
+  min-height: 100%;
 }
 
 * {
   font-family: "Fira Code";
+  box-sizing: border-box;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 h1 {
   color: #ffc600;
   font-size: 6rem;
-  position: absolute;
-  top: 16%;
-  left: 40%;
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
   user-select: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .keys {
   display: flex;
-  flex-direction: row;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  flex: 1;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .key:active {
@@ -42,7 +54,6 @@ h1 {
   cursor: grab;
   border: 0.4rem solid black;
   border-radius: 0.5rem;
-  margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
   transition: all 0.07s ease;
@@ -72,10 +83,38 @@ kbd {
   color: #ffc600;
 }
 
-/* Small screen styles */
+/* Medium screen styles */
 @media (max-width: 75rem) {
+  h1 {
+    font-size: 5rem;
+    padding: 1.5rem 0;
+  }
+
   .keys {
-    transition: all 0.5s ease;
+    gap: 0.8rem;
+  }
+
+  .key {
+    width: 9rem;
+  }
+
+  kbd {
+    font-size: 3.5rem;
+  }
+}
+
+/* Small screen styles */
+@media (max-width: 48rem) {
+  html {
+    font-size: 9px;
+  }
+
+  h1 {
+    font-size: 4rem;
+    padding: 1rem 0;
+  }
+
+  .keys {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -83,32 +122,82 @@ kbd {
   }
 
   .key {
-    transition: all 0.4s ease;
-    font-size: 24px;
-    width: 10rem;
-    height: 5rem;
-    text-align: center;
+    width: 100%;
+    height: 8rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   kbd {
-    transition: all 0.3s ease;
-    font-size: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .sound {
-    transition: all 0.2s ease;
-    font-size: 12px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screen styles */
+@media (max-width: 30rem) {
+  html {
+    font-size: 8px;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .keys {
+    gap: 0.6rem;
+    padding: 0.5rem;
+  }
+
+  .key {
+    height: 7rem;
   }
 }
 
 #preloader {
   background: #fff url(./dotdotdot.gif) no-repeat center center;
-  background-size: 5%;
+  background-size: 15%;
   height: 100vh;
   width: 100vw;
   position: fixed;
   z-index: 100;
+}
+
+/* Adjust preloader gif size for smaller screens */
+@media (max-width: 48rem) {
+  #preloader {
+    background-size: 25%;
+  }
+}
+
+/* Add button styles for touch devices */
+.touch-buttons {
+  display: none;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.touch-button {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffc600;
+  border: 2px solid #ffc600;
+  border-radius: 4px;
+  padding: 0.8rem 1.2rem;
+  margin: 0.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* Show touch buttons on touch screens */
+@media (hover: none) {
+  .touch-buttons {
+    display: block;
+  }
 }

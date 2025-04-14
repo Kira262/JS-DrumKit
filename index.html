@@ -14,45 +14,63 @@
   </head>
   <body>
     <div id="preloader"></div>
-    <h1 align="center">Drum Kit</h1>
-    <div class="keys">
-      <div data-key="65" class="key animation">
-        <kbd>A</kbd>
-        <span class="sound">clap</span>
+    <div class="container">
+      <h1>Drum Kit</h1>
+      
+      <!-- Touch device controls explanation -->
+      <div class="touch-buttons">
+        <p>Tap the buttons below or press the keyboard keys to play:</p>
+        <button class="touch-button" data-key="65">A</button>
+        <button class="touch-button" data-key="83">S</button>
+        <button class="touch-button" data-key="68">D</button>
+        <button class="touch-button" data-key="70">F</button>
+        <button class="touch-button" data-key="71">G</button>
+        <button class="touch-button" data-key="72">H</button>
+        <button class="touch-button" data-key="74">J</button>
+        <button class="touch-button" data-key="75">K</button>
+        <button class="touch-button" data-key="76">L</button>
       </div>
-      <div data-key="83" class="key animation">
-        <kbd>S</kbd>
-        <span class="sound">hihat</span>
-      </div>
-      <div data-key="68" class="key animation">
-        <kbd>D</kbd>
-        <span class="sound">kick</span>
-      </div>
-      <div data-key="70" class="key animation">
-        <kbd>F</kbd>
-        <span class="sound">openhat</span>
-      </div>
-      <div data-key="71" class="key animation">
-        <kbd>G</kbd>
-        <span class="sound">boom</span>
-      </div>
-      <div data-key="72" class="key animation">
-        <kbd>H</kbd>
-        <span class="sound">ride</span>
-      </div>
-      <div data-key="74" class="key animation">
-        <kbd>J</kbd>
-        <span class="sound">snare</span>
-      </div>
-      <div data-key="75" class="key animation">
-        <kbd>K</kbd>
-        <span class="sound">tom</span>
-      </div>
-      <div data-key="76" class="key animation">
-        <kbd>L</kbd>
-        <span class="sound">tink</span>
+      
+      <div class="keys">
+        <div data-key="65" class="key animation">
+          <kbd>A</kbd>
+          <span class="sound">clap</span>
+        </div>
+        <div data-key="83" class="key animation">
+          <kbd>S</kbd>
+          <span class="sound">hihat</span>
+        </div>
+        <div data-key="68" class="key animation">
+          <kbd>D</kbd>
+          <span class="sound">kick</span>
+        </div>
+        <div data-key="70" class="key animation">
+          <kbd>F</kbd>
+          <span class="sound">openhat</span>
+        </div>
+        <div data-key="71" class="key animation">
+          <kbd>G</kbd>
+          <span class="sound">boom</span>
+        </div>
+        <div data-key="72" class="key animation">
+          <kbd>H</kbd>
+          <span class="sound">ride</span>
+        </div>
+        <div data-key="74" class="key animation">
+          <kbd>J</kbd>
+          <span class="sound">snare</span>
+        </div>
+        <div data-key="75" class="key animation">
+          <kbd>K</kbd>
+          <span class="sound">tom</span>
+        </div>
+        <div data-key="76" class="key animation">
+          <kbd>L</kbd>
+          <span class="sound">tink</span>
+        </div>
       </div>
     </div>
+
     <!-- Sounds -->
     <audio data-key="65" src="sounds/clap.wav"></audio>
     <audio data-key="83" src="sounds/hihat.wav"></audio>
@@ -63,43 +81,26 @@
     <audio data-key="74" src="sounds/snare.wav"></audio>
     <audio data-key="75" src="sounds/tom.wav"></audio>
     <audio data-key="76" src="sounds/tink.wav"></audio>
+    
     <!-- JavaScript -->
+    <script src="index.js"></script>
+    
+    <!-- Add touch support JavaScript -->
     <script>
-      function removeTransition(e) {
-        if (e.propertyName !== "transform") return; //skip if it's not transform
-        e.target.classList.remove("playing");
-      }
-
-      function playSound(keyCode) {
-        const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
-        const key = document.querySelector(`div[data-key="${keyCode}"]`);
-        if (!audio) return; //stop function from running
-
-        key.classList.add("playing"); //adds .playing class
-        audio.currentTime = 0; //rewind to start ,when clicked/keypressed multiple times
-        audio.play();
-      }
-
-      const keys = Array.from(document.querySelectorAll(".key"));
-      keys.forEach(
-        (key) => key.addEventListener("transitionend", removeTransition) //call removeTransition  after keypressed
-      );
-
-      window.addEventListener("keydown", (e) => {
-        playSound(e.keyCode);
-      });
-
-      keys.forEach((key) => {
-        key.addEventListener("click", () => {
-          const keyCode = key.getAttribute("data-key");
-          playSound(keyCode);
+      // Handle touch buttons
+      const touchButtons = document.querySelectorAll('.touch-button');
+      touchButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const keyCode = this.getAttribute('data-key');
+          const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+          const key = document.querySelector(`.key[data-key="${keyCode}"]`);
+          
+          if (!audio) return;
+          
+          key.classList.add('playing');
+          audio.currentTime = 0;
+          audio.play();
         });
-      });
-      // Preloader Thingy
-      var loader = document.getElementById("preloader");
-      window.addEventListener("load", function () {
-        loader.style.display = "none";
-        
       });
     </script>
   </body>
